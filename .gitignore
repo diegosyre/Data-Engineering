@@ -1,0 +1,11 @@
+# Bases de datos (en cualquier carpeta)
+*.db
+*.sqlite
+
+# Logs (en cualquier carpeta)
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
