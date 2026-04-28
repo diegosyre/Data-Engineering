@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Pipeline ETL con Observabilidad y Auditoría (v2)
 
 
@@ -66,36 +66,4 @@ Para ejecutar este proyecto, necesitas tener instalado:
 
 
 
-\---
-
-Este proyecto es parte de mi formación como Ingeniero en Sistemas Computacionales, enfocado en crear soluciones escalables y auditables.
-=======
-## \## Mi Primer Pipeline ETL con Python
-
-## 
-
-## \### Descripción
-
-## Este es un proyecto académico de un pipeline ETL (Extract, Transform, Load) que procesa datos de usuarios, realiza limpieza de tipos y normalización de strings, y persiste la información en SQLite.
-
-## 
-
-## \### Arquitectura
-
-## 1\. \*\*Extracción:\*\* Carga de datos desde un DataFrame simulado (escalable a API/CSV).
-
-## 2\. \*\*Transformación:\*\* Limpieza de nombres con Pandas y manejo de valores nulos en ventas.
-
-## 3\. \*\*Carga:\*\* Persistencia en base de datos relacional usando SQLAlchemy.
-
-## 
-
-## \### Requisitos
-
-## \* Python 3.12
-
-## \* Pandas
-
-## \* SQLAlchemy
->>>>>>> 813062a6faed0282306335684c3ad381e1cfa129
 
