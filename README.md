@@ -14,9 +14,9 @@ Cada carpeta contiene una fase distinta del aprendizaje, con su propia documenta
 
 
 
-\* \*\*\[01\_Basico](./01\_Basico):\*\* Introducción a los flujos ETL (Extracción, Transformación y Carga) usando Python y SQLite.
+\* * [01\_Inicio_Pipeline]: Introducción a los flujos ETL (Extracción, Transformación y Carga) usando Python y SQLite.
 
-\* \*\*\[02\_Logs](./02\_Logs):\*\* Implementación de sistemas de observabilidad, auditoría de datos y manejo profesional de errores.
+\* * [02\_Pipeline_Logs]: Implementación de sistemas de observabilidad, auditoría de datos y manejo profesional de errores.
 
 
 
