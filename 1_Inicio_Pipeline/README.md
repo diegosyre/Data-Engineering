@@ -20,7 +20,7 @@
 
 ## \### Requisitos
 
-## \* Python 3.x
+## \* Python 3.12
 
 ## \* Pandas
 
