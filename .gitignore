@@ -1,6 +1,7 @@
 # Bases de datos (en cualquier carpeta)
 *.db
 *.sqlite
+*.sql
 
 # Logs (en cualquier carpeta)
 *.log
@@ -11,4 +12,10 @@ __pycache__/
 .venv/
 
 # Configuracion
-.env
+*.env
+
+# Archivos
+*.json
+*.csv 
+*.xml
+
