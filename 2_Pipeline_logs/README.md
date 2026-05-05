@@ -1,69 +1,73 @@
+# 📈 Pipeline ETL con Observabilidad y Auditoría (v2)
 
-Pipeline ETL con Observabilidad y Auditoría (v2)
+Esta versión representa la evolución técnica de un flujo funcional hacia un **sistema robusto con principios de ingeniería de datos**. El enfoque principal de esta iteración es la **trazabilidad**: garantizar que cada paso del proceso sea auditable y monitoreable.
 
+---
 
+### 🚀 Mejoras de Ingeniería (v2 vs v1)
 
-Este proyecto representa la evolución de mi primer pipeline de datos, pasando de una estructura funcional básica a un sistema robusto con principios de ingeniería de datos.
+En esta etapa, el enfoque se desplazó de "mover datos" a "controlar el flujo". Las implementaciones clave incluyen:
 
+*   **Logging Profesional:** Migración de sentencias `print()` al módulo nativo `logging` de Python.
+*   **Niveles de Severidad:** Implementación de jerarquías de eventos (`INFO`, `WARNING`, `ERROR`).
+*   **Data Profiling & Auditoría:** Identificación de anomalías antes de la fase de transformación.
 
+---
 
-🚀 Evolución del Proyecto
+### 📝 Implementación del Sistema de Logs
 
-En esta etapa, el enfoque se desplazó hacia la observabilidad y la trazabilidad. No basta con mover datos; es necesario saber exactamente qué ocurrió durante el proceso.
+Para garantizar que el sistema sea auditable, se configuró una trazabilidad dual (archivo y consola) mediante el siguiente bloque de código:
 
+```python
+import logging as lg
 
+# Configuración de observabilidad y auditoría
+lg.basicConfig(
+    level=lg.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        lg.FileHandler('pipeline.log'), # Persistencia para auditoría histórica
+        lg.StreamHandler()              # Monitoreo en tiempo real por terminal
+    ]
+)
 
-\### Mejoras Implementadas
+logger = lg.getLogger(__name__)
+```
 
-* Logging Profesional: Sustitución de `print()` por el módulo `logging` de Python.
-* Niveles de Severidad: Uso de `INFO` para flujo normal, `WARNING` para inconsistencias de datos y `ERROR` para fallos críticos.
-* Persistencia de Logs: Configuración de un `FileHandler` para almacenar la bitácora en un archivo `.log` externo, facilitando auditorías futuras.
-* Tratamiento de Errores: Identificación y registro de valores nulos o inválidos antes de la transformación (Data Profiling básico).
+**Beneficio Técnico:** Esta configuración permite desacoplar la ejecución del monitoreo. Mientras el `FileHandler` genera una bitácora persistente para análisis forense de errores, el `StreamHandler` facilita la observabilidad inmediata durante el desarrollo.
 
+---
 
+### 🛠️ Arquitectura del Sistema
 
-🛠️ Arquitectura del Sistema
+El pipeline implementa un patrón **ETL** optimizado para la detección de errores:
 
+1.  **Extracción:** Simulación de ingesta de datos con "ruido" técnico (espacios excesivos, tipos inconsistentes).
+2.  **Transformación (con Auditoría):**
+    *   **Data Cleaning:** Normalización a *Title Case* y casting de tipos.
+    *   **Lógica de Auditoría:** Conteo y registro automático de registros defectuosos en el log.
+3.  **Carga:** Persistencia relacional en **SQLite** mediante **SQLAlchemy**, garantizando la integridad de las tablas.
 
+---
 
-El pipeline sigue el patrón clásico ETL (Extract, Transform, Load):
+### 📦 Requisitos e Instalación
 
+Para ejecutar este pipeline, instala las dependencias necesarias:
 
+```bash
+pip install pandas sqlalchemy
+```
 
-1\.  Extracción: Simulación de ingesta de datos con diversos tipos de errores (strings con espacios, valores no numéricos).
+---
 
-2\.  Transformación: Limpieza y normalización de texto (Title Case).
+### 📖 Guía de Uso
 
-&#x20;    \* Conversión de tipos de datos.
+1.  **Ejecución:** Corre el script principal:
+    ```bash
+    python pipeline_2.py
+    ```
+2.  **Monitoreo:** Revisa el archivo generado `pipeline.log` para auditar los eventos de la ejecución.
+3.  **Verificación:** Consulta la base de datos `mi_proyecto.db` para ver los resultados finales.
 
-&#x20;    \* Lógica de Auditoría: Conteo y registro en log de registros defectuosos antes de la imputación.
-
-3\.  Carga: Persistencia en una base de datos \*\*SQLite\*\* mediante \*\*SQLAlchemy\*\*, asegurando que la tabla se actualice correctamente.
-
-
-
-📋 Requisitos
-
-Para ejecutar este proyecto, necesitas tener instalado:
-
-\* Python 3.12
-
-\* Pandas (`pip install pandas`)
-
-\* SQLAlchemy (`pip install sqlalchemy`)
-
-
-
-📖 Cómo usarlo
-
-1\. Clona el repositorio.
-
-2\. Ejecuta el script principal: `python pipeline\_2.py`.
-
-3\. Revisa el archivo generado `pipeline.log` para ver el historial de la ejecución.
-
-4\. Consulta la base de datos `mi\_proyecto.db` para ver los resultados finales.
-
-
-
-
+---
+**Ingeniería en Sistemas Computacionales** | *Construyendo sistemas de datos transparentes y confiables.*
